@@ -291,7 +291,6 @@ h6 {
 
 .content {
     padding: 1rem 8rem;
-    min-height: 50vh;
 
     & .post {
         & .title {
@@ -317,6 +316,33 @@ h6 {
 
         & .more-link {
             font-size: var(--font-small);
+        }
+    }
+
+    & .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        
+        & .carousel {
+            height: 500px;
+            width: 100%;
+
+            & .simple-carousel {
+                height: 100%;
+
+                & .slick-list {
+                    height: 100%;
+
+                    & .slick-slide {
+                        height: 100%;
+
+                        & img {
+                            height: 100% !important;
+                        }
+                    }
+                }
+            }
         }
     }
 }

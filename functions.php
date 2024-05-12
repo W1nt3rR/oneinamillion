@@ -12,6 +12,26 @@ class MyTheme {
         add_action('wp_head', [$this, 'sidebar_styles']);
         add_action('wp_head', [$this, 'search_styles']);
         add_action('widgets_init', [$this, 'register_widgets']);
+        add_action('init', [$this, 'register_carousel_post_type']);
+    }
+
+    public function register_carousel_post_type() {
+        $args = array(
+            'labels' => array(
+                'name' => 'Carousel Images',
+                'singular_name' => 'Carousel Image',
+            ),
+            'public' => true,
+            'has_archive' => false,
+            'menu_icon' => 'dashicons-images-alt2',
+            'supports' => array('title', 'thumbnail'),
+            'exclude_from_search' => true,
+            'publicly_queryable' => false,
+            'rewrite' => false,
+            'capability_type' => 'post',
+        );
+
+        register_post_type('carousel_images', $args);
     }
 
     public function theme_support() {
